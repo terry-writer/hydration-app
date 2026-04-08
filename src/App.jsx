@@ -3,9 +3,10 @@ import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
 
 // 後の手順でAWS側で発行するIDをここに入れる
-const REGION = "ap-northeast-1";
-const IDENTITY_POOL_ID = "ap-northeast-1:a38ca3bd-11ad-4dbc-99bd-e5455c520a4a";
-const BUCKET_NAME = "hydration-log-2026";
+// App.jsx の冒頭
+const REGION = import.meta.env.VITE_REGION;
+const IDENTITY_POOL_ID = import.meta.env.VITE_IDENTITY_POOL_ID;
+const BUCKET_NAME = import.meta.env.VITE_BUCKET_NAME;
 
 // AWSクライアントの初期化
 const s3Client = new S3Client({
